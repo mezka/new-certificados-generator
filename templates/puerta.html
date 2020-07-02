@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<title>EQUIPAMIENTOS DE SEGURIDAD - Certificado Puerta Cortafuego</title>
+	<meta charset="utf-8"/>
+	<style>
+
+	html{
+		background-color: white;
+	}
+
+	body{
+		margin: 0;
+		font-family: Garamond;
+		font-size: 15px;
+	}
+
+	.logo-container{
+		position: relative;
+	}
+
+	.logo{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 31%;
+	}
+
+	.iram{
+		position: absolute;
+		display: inline;
+		left: -5px;
+		height: 95px;
+	}
+
+	.date{
+		text-align: right;
+	}
+
+	.firma{
+		width: 18%;
+	}
+
+	.firma-cliente{
+		margin-top: 35px;
+	}
+	
+
+	</style>
+</head>
+<body>
+	<p class="date">{{ FECHA }}</p>
+	<div class="logo-container">
+		<img class="iram" src="assets/iram_2015.png" alt="">
+		<img class="logo" src="assets/mesquita.png">
+	</div>
+	<hr class="divider">
+	<p class="addressed">Se&#241;ores: {{ CLIENTE }}<br>
+			Direccion de entrega: {{ DIRECCION_ENTREGA }}
+	</p>
+
+	<b>Referencia: CERTIFICADO DE PUERTA {{ MODELO }}</b>
+
+	<ul>
+		<li>Factura: {{ TIPO_DE_FACTURA }}. N&#176;: {{ FACTURA_NRO }}.</li>
+		<li>Remito N&#176;: {{ REMITO_NRO }}.</li>
+		<li>Medida de paso libre: {{ MEDIDA }} Cantidad: {{ CANTIDAD }}.</li>
+		<li>Con numeros de serie: {{ NROS_SERIE }}.</li>
+	</ul>
+
+	<p>Por la presente CERTIFICAMOS en car&aacute;cter de declaraci&oacute;n  jurada que las puertas modelo {{ MODELO | replace('_', ' ')}} han sido construidas para la resistencia al fuego con los criterios establecidos en la NORMAS IRAM 11949, 11950, 11951 y 11952/ ISO 834 respondiendo a la descripci&oacute;n t&eacute;cnica que adjuntamos EN COPIA FIEL del informe de ensayo {{ ORDEN_DE_TRABAJO }}, correspondiendo a la clasificaci&oacute;n obtenida {{ CLASIFICACION }}.</p>
+
+	<p>Tambi&eacute;n les informamos que las puertas han sido contruidas bajo un proceso de fabricaci&oacute;n estandarizado acorde a nuestro sistema de gesti&oacute;n de la calidad ISO 9001:2015.</p>
+
+	<p>Las caracter&iacute;sticas generales de dichas puertas ignifugas cumplen con las exigencias impartidas por el C&oacute;digo de Edificaci&oacute;n de la Ciudad de Buenos Aires.</p>
+
+	<p>Sin m&aacute;s los saluda muy cordialmente.</p>
+
+	<p>Monica Drago</p>
+	<p>Equipamientos de Seguridad S.A. - Apoderada</p>
+
+	<img class="firma" src="assets/firma_monica_certificados.jpg"/>
+
+	<p class="firma-cliente">RECIB&Iacute;: ...................................................................</p>
+
+	<p class="firma-cliente">ACLARACI&Oacute;N: .........................................................</p>
+	
+</body>
+</html>
