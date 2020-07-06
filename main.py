@@ -111,7 +111,6 @@ def concatenate_pdf(first_pdf_filename, resulting_pdf_filename):
 
     for page_num in range(second_pdf_reader.numPages):
         page_obj = second_pdf_reader.getPage(page_num)
-        page_obj.mergePage(pdf_watermark_page)
         pdf_writer.addPage(page_obj)
 
     with open(resulting_pdf_filename, 'wb') as dest_pdf_file:
