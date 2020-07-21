@@ -1,7 +1,7 @@
 # Script interno para generación masiva de certificados de puertas
 A partir de templates HTML, y archivos PDF prerenderizados, con impresión de marca de agua
 
-## Instalación de dependencias
+## Instalación de dependencias en Windows
 
 Para utilizar la aplicación se deben tener instalados los siguientes paquetes:
 
@@ -24,6 +24,31 @@ O de los siguientes mirror proporcionados por el autor:
 [ImageMagick v7.0.10-22 x64 dinamica con 16 bits por pixel](https://1drv.ms/u/s!Arz535PAeGSPjFMIAK43ABJK08Ky?e=ZhBerz)
 
 [Runtime GTK v3.24.18 x64](https://1drv.ms/u/s!Arz535PAeGSPjFSDIBOU2qDkxuxl?e=OCTubg)
+
+## Instalacion de dependencias en distribuciones de Linux basadas en Debian
+
+```bash
+sudo apt-get update
+sudo apt-get install libffi-dev libxml2-dev libxslt1-dev
+```
+
+Además se debe configurar la libreria externa ImageMagick para habilitar su uso para leer y escribir archivos en formato PDF modificando la siguiente linea en `/etc/ImageMagick-*/policy.xml`
+
+De:
+```bash
+<policy domain="coder" rights="none" pattern="PDF" />
+```
+
+A:
+```bash
+<policy domain="coder" rights="read|write" pattern="PDF" />
+```
+
+De no realizar este paso es probable que el script falle con el siguiente error:
+
+```bash
+wand.exceptions.PolicyError: not authorized `temp/temp_watermark.pdf' @ error/constitute.c/WriteImage/1037
+```
 
 ## Instalación de los modulos de Python usados por el script
 
