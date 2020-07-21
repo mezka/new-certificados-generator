@@ -85,7 +85,11 @@ def generate_watermark_pdf(watermark_text):
 
     with WandImage(filename = defaults['temp_watermark_png_filename']) as img:
         img.format = 'pdf'
-        img.save(filename = defaults['temp_watermark_pdf_filename']) 
+        try:
+            img.save(filename = defaults['temp_watermark_pdf_filename'])
+        except:
+            raise
+
 
     remove(defaults['temp_watermark_png_filename'])
 
@@ -130,8 +134,12 @@ if __name__ == "__main__":
     create_temp_directory_if_not_exists()
 
     for certificado in certificados:
-        generate_pdf_from_template(certificado)
-        generate_watermark_pdf(generate_watermark_text(certificado))
-        concatenate_pdf(certificado['_pdf_certificate_filename'], path.join(defaults['out_directory_path'], f"{certificado['CLIENTE'].replace(' ', '_')}_{certificado['MODELO']}_{certificado['MEDIDA']}.pdf"))
+        try:
+            generate_pdf_from_template(certificado)
+            generate_watermark_pdf(generate_watermark_text(certificado))
+            concatenate_pdf(certificado['_pdf_certificate_filename'], path.join(defaults['out_directory_path'], f"{certificado['CLIENTE'].replace(' ', '_')}_{certificado['MODELO']}_{certificado['MEDIDA']}.pdf"))
+        except Exception as ex:
+            print(ex)
+            break
     
     delete_temp_directory()
