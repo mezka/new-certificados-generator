@@ -72,7 +72,7 @@ products = {
     },
     'PORTON_RF60_CORREDIZO': {
         'template_filename': 'templates/porton.html',
-        'pdf_certificate_filename': 'pdf_files/rf120d_euro.pdf',
+        'pdf_certificate_filename': 'pdf_files/rf60_porton_inti.pdf',
         'clasificacion': 'RF60',
         'orden_de_trabajo': 'Nro 101/7256, con fecha del 21/10/2003'
     }
