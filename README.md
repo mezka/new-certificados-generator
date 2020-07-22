@@ -81,7 +81,7 @@ Se generara un certificado por cada fila ingresada en la planilla de calculo. A 
 | RF60_EURO_SIMPLE_VIDRIADA	 |  Incluye el certificado RF60 hoja simple europea vidriada |	   
 | RF120_EURO_SIMPLE	         |  Incluye el certificado RF120 hoja simple europea	     |
 | RF120_EURO_DOBLE  	     |  Incluye el certificado RF120 hoja doble europea	         |
-| PORTON_RF60_CORREDIZO      |  Incluye el certificado RF60 para porton corredizo        |	   
+| RF60_CORREDIZO             |  Incluye el certificado RF60 para porton corredizo        |	   
 
 Una vez cargados los datos de los certificados a generar abrimos una terminal en el directorio del script, el mismo tiene la siguiente estructura:
 
