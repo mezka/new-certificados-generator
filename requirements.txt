@@ -6,7 +6,7 @@ defusedxml==0.6.0
 et-xmlfile==1.0.1
 html5lib==1.1
 jdcal==1.4.1
-Jinja2==2.11.2
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 openpyxl==3.0.4
 Pillow==7.2.0
