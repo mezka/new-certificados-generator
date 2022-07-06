@@ -12,14 +12,13 @@ from wand.image import Image as WandImage
 def create_temp_directory_if_not_exists():
     try:
         makedirs(defaults['temp_directory_path'])
-    except OSError as e:
-        if e.errno != errno.EEXIST:
-            raise
+    except OSError:
+        raise
 def delete_temp_directory():
     try:
         rmtree(defaults['temp_directory_path'])
-    except OSError as e:
-        print("Error: %s : %s" % (dir_path, e.strerror))
+    except OSError:
+        raise
 
 def load_workbook_rows_into_certificados():
     wb = load_workbook(filename = defaults['excel_workbook_filename'])
@@ -34,11 +33,14 @@ def load_workbook_rows_into_certificados():
 
         certificado = dict(zip(keys, row))
 
-        certificado['ORDEN_DE_TRABAJO'] = products[certificado['MODELO']]['orden_de_trabajo']
-        certificado['CLASIFICACION'] = products[certificado['MODELO']]['clasificacion']
-        certificado['FECHA'] = strftime("%d-%m-%Y")
-        certificado['_template_filename'] = products[certificado['MODELO']]['template_filename']
-        certificado['_pdf_certificate_filename'] = products[certificado['MODELO']]['pdf_certificate_filename']
+        try:
+            certificado['ORDEN_DE_TRABAJO'] = products[certificado['MODELO']]['orden_de_trabajo']
+            certificado['CLASIFICACION'] = products[certificado['MODELO']]['clasificacion']
+            certificado['FECHA'] = strftime("%d-%m-%Y")
+            certificado['_template_filename'] = products[certificado['MODELO']]['template_filename']
+            certificado['_pdf_certificate_filename'] = products[certificado['MODELO']]['pdf_certificate_filename']
+        except KeyError as e:
+            raise
 
         certificados.append(certificado)
 
@@ -129,17 +131,23 @@ def concatenate_pdf(first_pdf_filename, resulting_pdf_filename):
 
 if __name__ == "__main__":
     
-    certificados = load_workbook_rows_into_certificados()
+    try:
+        certificados = load_workbook_rows_into_certificados()
 
-    create_temp_directory_if_not_exists()
+        create_temp_directory_if_not_exists()
 
-    for certificado in certificados:
-        try:
-            generate_pdf_from_template(certificado)
-            generate_watermark_pdf(generate_watermark_text(certificado))
-            concatenate_pdf(certificado['_pdf_certificate_filename'], path.join(defaults['out_directory_path'], f"{certificado['CLIENTE'].replace(' ', '_')}_{certificado['MODELO']}_{certificado['MEDIDA']}.pdf"))
-        except Exception as ex:
-            print(ex)
-            break
-    
-    delete_temp_directory()
+        for certificado in certificados:
+            try:
+                generate_pdf_from_template(certificado)
+                generate_watermark_pdf(generate_watermark_text(certificado))
+                concatenate_pdf(certificado['_pdf_certificate_filename'], path.join(defaults['out_directory_path'], f"{certificado['CLIENTE'].replace(' ', '_')}_{certificado['MODELO']}_{certificado['MEDIDA']}.pdf"))
+            except Exception as e:
+                raise
+            finally:
+                delete_temp_directory()
+    except OSError:
+        print('ERROR: Hubo un problema al crear o eliminar el directorio temporal, a continuacion se imprimen los detalles del error:\n')
+        raise
+    except KeyError:
+        print('ERROR: Hubo un problema al leer el codigo de modelo especificado en una de las filas, a continuacion se imprimen los detalles del error:\n')
+        raise
