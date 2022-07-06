@@ -47,25 +47,25 @@ products = {
         'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 101/22989, y fecha del 10/09/2013'
     },
     'RF60_EURO_DOBLE': {
-        'template_filename': 'templates/puerta_euro.html',
+        'template_filename': 'templates/puerta.html',
         'pdf_certificate_filename': 'pdf_files/rf60d_euro.pdf',
         'clasificacion': 'RF60',
         'orden_de_trabajo': 'realizado en Cidemco Tecnalia (España) con ordén de trabajo Nro 13097-2, y fecha del 14/09/2006'
     },
     'RF60_EURO_SIMPLE_VIDRIADA': {
-        'template_filename': 'templates/puerta_euro.html',
+        'template_filename': 'templates/puerta.html',
         'pdf_certificate_filename': 'pdf_files/rf60sv_euro.pdf',
         'clasificacion': 'RF60',
         'orden_de_trabajo': 'realizado en Cidemco Tecnalia (España) con ordén de trabajo Nro 28485-2, y fecha del 25/08/2011'
     },
     'RF120_EURO_SIMPLE': {
-        'template_filename': 'templates/puerta_euro.html',
+        'template_filename': 'templates/puerta.html',
         'pdf_certificate_filename': 'pdf_files/rf120s_euro.pdf',
         'clasificacion': 'RF120',
         'orden_de_trabajo': 'realizado en Cidemco Tecnalia (España) con ordén de trabajo Nro 22076-5, y fecha del 19/06/2009'
     },
     'RF120_EURO_DOBLE': {
-        'template_filename': 'templates/puerta_euro.html',
+        'template_filename': 'templates/puerta.html',
         'pdf_certificate_filename': 'pdf_files/rf120d_euro.pdf',
         'clasificacion': 'RF120',
         'orden_de_trabajo': 'realizado en Cidemco Tecnalia (España) con ordén de trabajo Nro 24922-2, y fecha del 16/06/2010'
