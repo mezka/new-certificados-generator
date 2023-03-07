@@ -8,6 +8,7 @@ from PyPDF2 import PdfFileReader, PdfFileWriter
 from os import path, remove, makedirs
 from shutil import rmtree
 from wand.image import Image as WandImage
+import time
 
 def create_temp_directory_if_not_exists():
     try:
@@ -134,9 +135,9 @@ if __name__ == "__main__":
     try:
         certificados = load_workbook_rows_into_certificados()
 
-        create_temp_directory_if_not_exists()
 
         for certificado in certificados:
+            create_temp_directory_if_not_exists()
             try:
                 generate_pdf_from_template(certificado)
                 generate_watermark_pdf(generate_watermark_text(certificado))
