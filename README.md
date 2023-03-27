@@ -74,7 +74,7 @@ Se generara un certificado por cada fila ingresada en la planilla de calculo. A 
 | RF30	                     |  Incluye el certificado RF30 hoja simple                  |	   
 | RF60_SIMPLE	             |  Incluye el certificado RF60 hoja simple                  |	   
 | RF60_DOBLE	             |  Incluye el certificado RF60 hoja doble	                 |
-| RF90	                     |  Incluye el certificado RF120 hoja simple	             |
+| RF90	                     |  Incluye el certificado RF90 hoja simple	             |
 | RF120	                     |  Incluye el certificado RF120 hoja simple	             |
 | RF60_EURO_SIMPLE	         |  Incluye el certificado RF60 hoja simple europea	         |  
 | RF60_EURO_DOBLE	         |  Incluye el certificado RF60 hoja doble europea	         |

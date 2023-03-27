@@ -30,9 +30,9 @@ products = {
     },
     'RF90': {
         'template_filename': 'templates/puerta.html',
-        'pdf_certificate_filename': 'pdf_files/rf120s.pdf',
+        'pdf_certificate_filename': 'pdf_files/rf90s.pdf',
         'clasificacion': 'RF90',
-        'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 101/4268, y fecha del 17/10/2000'
+        'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 224/2949, y fecha del 14/03/2023'
     },
     'RF120': {
         'template_filename': 'templates/puerta.html',
