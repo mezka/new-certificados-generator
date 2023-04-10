@@ -8,7 +8,7 @@ from PyPDF2 import PdfFileReader, PdfFileWriter
 from os import path, remove, makedirs
 from shutil import rmtree
 from wand.image import Image as WandImage
-import time
+from send_email import send_email
 
 def create_temp_directory_if_not_exists():
     try:
@@ -130,18 +130,19 @@ def concatenate_pdf(first_pdf_filename, resulting_pdf_filename):
     remove(defaults['temp_lastpage_pdf_filename'])
     remove(defaults['temp_watermark_pdf_filename'])
 
-if __name__ == "__main__":
-    
+def main(args):
+
+    certificados = load_workbook_rows_into_certificados()
     try:
-        certificados = load_workbook_rows_into_certificados()
-
-
         for certificado in certificados:
             create_temp_directory_if_not_exists()
             try:
                 generate_pdf_from_template(certificado)
                 generate_watermark_pdf(generate_watermark_text(certificado))
-                concatenate_pdf(certificado['_pdf_certificate_filename'], path.join(defaults['out_directory_path'], f"{certificado['CLIENTE'].replace(' ', '_')}_{certificado['MODELO']}_{certificado['MEDIDA']}.pdf"))
+                pdf_certificate_filename = f"{certificado['REMITO_NRO']}_{certificado['CLIENTE'].replace(' ', '_')}_{certificado['MODELO']}_{certificado['MEDIDA']}.pdf"
+                concatenate_pdf(certificado['_pdf_certificate_filename'], path.join(defaults['out_directory_path'], pdf_certificate_filename))
+                if args.email and args.password and args.smtpserver and args.imapserver:
+                    send_email(path.join(defaults['out_directory_path'], pdf_certificate_filename), certificado['EMAIL'], args.email, args.password, args.smtpserver, args.imapserver)
             except Exception as e:
                 raise
             finally:
@@ -152,3 +153,17 @@ if __name__ == "__main__":
     except KeyError:
         print('ERROR: Hubo un problema al leer el codigo de modelo especificado en una de las filas, a continuacion se imprimen los detalles del error:\n')
         raise
+
+
+if __name__ == "__main__":
+
+    argparser = argparse.ArgumentParser(prog = 'Mesquita Certificados Generator', description = 'Genera certificados de puertas Mesquita Hnos')
+
+    argparser.add_argument('--smtpserver', action='store', help='Determina un servidor smtp para el envio de certificados')
+    argparser.add_argument('--imapserver', action='store', help='Determina un servidor imap para guardar los emails enviados')
+    argparser.add_argument('--email', action='store', help='Determina el usuario para hacer el login con los servidores de mail')
+    argparser.add_argument('--password', action='store', help='Establece la password de usuario a utilizar para el login')
+
+    args = argparser.parse_args()
+
+    main(args)
