@@ -9,6 +9,8 @@ from os import path, remove, makedirs
 from shutil import rmtree
 from wand.image import Image as WandImage
 from send_email import send_email
+import argparse
+
 
 def create_temp_directory_if_not_exists():
     try:
