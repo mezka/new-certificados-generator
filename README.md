@@ -31,8 +31,13 @@ O de los siguientes mirror proporcionados por el autor:
 sudo apt-get update
 sudo apt-get install libffi-dev libxml2-dev libxslt1-dev
 ```
+### En Ubuntu 20.04 (distribucion por defecto de Ubuntu en WSL2) se debe instalar tambien la siguiente dependencia
 
-Además se debe configurar la libreria externa ImageMagick para habilitar su uso para leer y escribir archivos en formato PDF modificando la siguiente linea en `/etc/ImageMagick-*/policy.xml`
+```
+sudo apt-get install libpangocairo-1.0-0
+```
+
+En todos los casos se debe configurar la libreria externa ImageMagick para habilitar su uso para leer y escribir archivos en formato PDF modificando la siguiente linea en `/etc/ImageMagick-*/policy.xml`
 
 De:
 ```bash
