@@ -9,7 +9,7 @@ import time
 def send_email(certificate_filename, certificate_recipients, email_user, email_password, smtp_server_url, imap_server_url):
 
     msg = MIMEMultipart()
-    msg['Subject'] = 'Mesquita Hnos - Envío de certificados de puertas cortafuego'
+    msg['Subject'] = f'Mesquita Hnos - Envío de certificados: {os.path.basename(certificate_filename)}'
     msg['From'] = email_user
     msg['To'] = certificate_recipients
 
