@@ -36,7 +36,7 @@ products = {
     },
     'RF120': {
         'template_filename': 'templates/puerta.html',
-        'pdf_certificate_filename': 'pdf_files/rf120s.pdf',
+        'pdf_certificate_filename': 'pdf_files/rf120sm.pdf',
         'clasificacion': 'RF120',
         'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 101/4268, y fecha del 17/10/2000'
     },
