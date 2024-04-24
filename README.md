@@ -76,8 +76,9 @@ Se generara un certificado por cada fila ingresada en la planilla de calculo. A 
 
 | CODIGO DE MODELO           |        CERTIFICADO A UTILIZAR                             |
 |:--------------------------:|:---------------------------------------------------------:|
-| RF30	                     |  Incluye el certificado RF30 hoja simple                  |	   
-| RF60_SIMPLE	             |  Incluye el certificado RF60 hoja simple                  |	   
+| RF30	                     |  Incluye el certificado RF30 hoja simple                  |
+| RF60_SIMPLE	             |  Incluye el certificado RF60 hoja simple                  |
+| RF60_SIMPLE_LITE           |  Incluye el certificado RF60 hoja simple modelo lite      |
 | RF60_DOBLE	             |  Incluye el certificado RF60 hoja doble	                 |
 | RF90	                     |  Incluye el certificado RF90 hoja simple	             |
 | RF120	                     |  Incluye el certificado RF120 hoja simple	             |

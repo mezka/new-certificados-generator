@@ -16,6 +16,12 @@ products = {
         'clasificacion': 'RF30',
         'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 101/14809, y fecha del 25/02/2008'
     },
+    'RF60_SIMPLE_LITE': {
+        'template_filename': 'templates/puerta.html',
+        'pdf_certificate_filename': 'pdf_files/rf60slm.pdf',
+        'clasificacion': 'RF60',
+        'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 224/4062, y fecha del 05/04/2024'
+    },
     'RF60_SIMPLE': {
         'template_filename': 'templates/puerta.html',
         'pdf_certificate_filename': 'pdf_files/rf60s.pdf',
