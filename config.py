@@ -24,15 +24,15 @@ products = {
     },
     'RF60_SIMPLE': {
         'template_filename': 'templates/puerta.html',
-        'pdf_certificate_filename': 'pdf_files/rf90sm.pdf',
+        'pdf_certificate_filename': 'pdf_files/rf60slm.pdf',
         'clasificacion': 'RF60',
-        'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 224/2949, y fecha del 14/03/2023'
+        'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 224/4062, y fecha del 05/04/2024'
     },
     'RF60_DOBLE': {
         'template_filename': 'templates/puerta.html',
-        'pdf_certificate_filename': 'pdf_files/rf90sm.pdf',
+        'pdf_certificate_filename': 'pdf_files/rf60slm.pdf',
         'clasificacion': 'RF60',
-        'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 224/2949, y fecha del 14/03/2023'
+        'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 224/4062, y fecha del 05/04/2024'
     },
     'RF90': {
         'template_filename': 'templates/puerta.html',
@@ -78,8 +78,8 @@ products = {
     },
     'RF60_CORREDIZO': {
         'template_filename': 'templates/porton.html',
-        'pdf_certificate_filename': 'pdf_files/rf60z_porton_inti.pdf',
+        'pdf_certificate_filename': 'pdf_files/rf60mf_porton_inti.pdf',
         'clasificacion': 'RF60',
-        'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 101/26599, y fecha del 01/08/2016'
+        'orden_de_trabajo': 'realizado en INTI con ordén de trabajo Nro 224/5360, y fecha del 03/09/2025'
     }
 }
