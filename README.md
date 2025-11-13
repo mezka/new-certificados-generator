@@ -29,7 +29,7 @@ O de los siguientes mirror proporcionados por el autor:
 
 ```bash
 sudo apt-get update
-sudo apt-get install libffi-dev libxml2-dev libxslt1-dev libfreetype6-dev
+sudo apt-get install libffi-dev libxml2-dev libxslt1-dev libfreetype6-dev libjpeg-dev
 ```
 ### En Ubuntu 20.04 (distribucion por defecto de Ubuntu en WSL2) se debe instalar tambien la siguiente dependencia
 
