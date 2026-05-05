@@ -1,6 +1,10 @@
 # Script interno para generación masiva de certificados de puertas
 A partir de templates HTML, y archivos PDF prerenderizados, con impresión de marca de agua
 
+> Esta rama (`legacy/py38`) se conserva por compatibilidad con entornos legacy (Windows 7 x64).
+> Para nuevos desarrollos o nuevas instalaciones se recomienda utilizar la rama `master`.
+> Se intentará backportear a esta rama los cambios de la rama principal que sean compatibles.
+
 ## Instalación de dependencias en Windows
 
 Para utilizar la aplicación se deben tener instalados los siguientes paquetes:
@@ -8,6 +12,7 @@ Para utilizar la aplicación se deben tener instalados los siguientes paquetes:
 * Python 3 (Probado con Python 3.8.3 x64)
 * ImageMagick (Probado con v7.0.10-22 x64 dinamica con 16 bits por pixel)
 * Runtime GTK (Probado con v3.24.18 x64)
+* Visual C++ Redistributable para Visual Studio 2015 (x64)
 
 Los paquetes mencionados anteriormente pueden ser obtenidos de:
 
@@ -17,6 +22,8 @@ https://www.imagemagick.org/script/download.php
 
 https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer
 
+https://www.microsoft.com/es-ar/download/details.aspx?id=48145
+
 O de los siguientes mirror proporcionados por el autor:
 
 [Python 3.8.3](https://1drv.ms/u/s!Arz535PAeGSPjFLSB01egBbotpyA?e=RM87ef)
@@ -24,6 +31,8 @@ O de los siguientes mirror proporcionados por el autor:
 [ImageMagick v7.0.10-22 x64 dinamica con 16 bits por pixel](https://1drv.ms/u/s!Arz535PAeGSPjFMIAK43ABJK08Ky?e=ZhBerz)
 
 [Runtime GTK v3.24.18 x64](https://1drv.ms/u/s!Arz535PAeGSPjFSDIBOU2qDkxuxl?e=OCTubg)
+
+[Visual C++ Redistributable para Visual Studio 2015 x64](https://1drv.ms/u/c/8f6478c093dff9bc/IQAkaU0_DBNbRZujL5A1y3vGAT3YWnSf5cQkcj-WFZUVavs?e=X1lnA2)
 
 ## Instalacion de dependencias en distribuciones de Linux basadas en Debian
 
