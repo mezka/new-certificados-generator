@@ -4,7 +4,7 @@ from time import strftime
 from jinja2 import Template
 from config import products, defaults
 from weasyprint import HTML
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from PyPDF2 import PdfReader, PdfWriter
 from os import path, remove, makedirs
 from shutil import rmtree
 from wand.image import Image as WandImage
@@ -100,27 +100,27 @@ def generate_watermark_pdf(watermark_text):
 
 def concatenate_pdf(first_pdf_filename, resulting_pdf_filename):
 
-    pdf_writer = PdfFileWriter()
+    pdf_writer = PdfWriter()
     
     pdf_watermark_file = open(defaults['temp_watermark_pdf_filename'], 'rb')
-    pdf_watermark_reader = PdfFileReader(pdf_watermark_file, strict=False)
-    pdf_watermark_page = pdf_watermark_reader.getPage(0) 
+    pdf_watermark_reader = PdfReader(pdf_watermark_file, strict=False)
+    pdf_watermark_page = pdf_watermark_reader.pages[0] 
 
     first_pdf_file = open(first_pdf_filename, 'rb')
-    first_pdf_reader = PdfFileReader(first_pdf_file, strict=False)
+    first_pdf_reader = PdfReader(first_pdf_file, strict=False)
 
-    for page_num in range(first_pdf_reader.numPages):
-        page_obj = first_pdf_reader.getPage(page_num)
-        page_obj.mergePage(pdf_watermark_page)
-        pdf_writer.addPage(page_obj)
+    for page_num in range(len(first_pdf_reader.pages)):
+        page_obj = first_pdf_reader.pages[0]
+        page_obj.merge_page(pdf_watermark_page)
+        pdf_writer.add_page(page_obj)
 
     second_pdf_file = open(defaults['temp_lastpage_pdf_filename'], 'rb')
-    second_pdf_reader = PdfFileReader(second_pdf_file)
+    second_pdf_reader = PdfReader(second_pdf_file)
 
 
-    for page_num in range(second_pdf_reader.numPages):
-        page_obj = second_pdf_reader.getPage(page_num)
-        pdf_writer.addPage(page_obj)
+    for page_num in range(len(second_pdf_reader.pages)):
+        page_obj = second_pdf_reader.pages[0]
+        pdf_writer.add_page(page_obj)
 
     with open(resulting_pdf_filename, 'wb') as dest_pdf_file:
         pdf_writer.write(dest_pdf_file)
